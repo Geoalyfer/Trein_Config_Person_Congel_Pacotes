@@ -1,0 +1,66 @@
+As configurações personalizadas servem para definir qual interpretador o python irá utilizar.
+
+Como fizemos uma alteração geral do vscode, sempre que outro arquivo rodar, ele vai utilizar o ambiente virtual.
+
+Para que os demais arquivos do python não utilizem o ambiente virtual, é preciso entrar nos settings JSON e apagar a linha "code-runner.executorMap":{}
+
+Para corrigir esse problema a solução é o congelamento de pacotes.
+
+Cria-se uma nova pasta iniciando com o ponto . O ponto faz com que a pasta se torne oculta dentro do ambiente. O nome da pasta pode se chamar settings.json. Dentro desta pasta, abrir {} e colar dentro das chaves a seguinte sequencia de programação:
+
+"code-runner.executorMap":{
+
+    "python": "C:\\Users\\Desktop\\Python\\Exercicios\\vscode\\material_modulo12\\Novo_Ambiente_Virtual\\george_amb_virt\\Scripts\\python.exe",
+}
+
+Assim, pode-se alterar as configurações para o projeto que ficará personalizado conforme a definição do programador.
+
+O pacote de programação default de cada computador vai aparecer conforme a sequencia de programação abaixo:
+
+{
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontSize": 15,
+    "jupyter.askForKernelRestart": false,
+    "terminal.integrated.shell.windows": "C:\\Windowns\\System32\\cmd.exe",
+    "files.autoSave": "afterDelay",
+
+"code-runner.executorMap":{
+
+    "python": "C:\\Users\\Desktop\\Python\\Exercicios\\vscode\\material_modulo12\\Novo_Ambiente_Virtual\\george_amb_virt\\Scripts\\python.exe",
+}
+}
+
+A configuração global do VSCode está o link default de cada computador que tem o VSCode instalado.
+Ex.:
+Busque na bilbioteca a opção ctrl + shift + p ou na caixa de busca na parte superior da tela, o pacote que está configurado pelo link;
+Preferences: Open User Setting (JSON)
+
+Então apague as linhas que estão definidas para o ambiente virtual modificado;
+
+"code-runner.executorMap":{
+
+    "python": "C:\\Users\\Desktop\\Python\\Exercicios\\vscode\\material_modulo12\\Novo_Ambiente_Virtual\\george_amb_virt\\Scripts\\python.exe",
+}
+
+O resultado será o retorno da configuração original do tema padrão.
+
+Caso a preferência do programação para mudar de cor por emxemplo do ambiente personalizado, basta acrescentar a linha de programação que define a cor no arquivo settings.jason que foi criado para o projeto.
+Ex:
+"workbench.colorTheme": "One Dark Pro",
+
+O resultado será alteração de cor somente para o projeto. 
+
+INSTALANDO REQUIREMENTS
+
+Dentro do ambiente virtual, acesse pelo terminal do windows a pasta do ambiente virtual.
+Entao digite;
+
+pip freeze > requirements.txt
+
+O resultado é a criação de um arqquivo txt dentro do ambiente virtual cujo nome é requirements.txt
+
+Dentro deste arquivo é especificado todos os pacotes utilizados no projeto personalizado.
+
+Quando o arquivo de requirements vem de outro projeto existente, pelo terminal integrado, e com o ambinte virtual acessado, digite pip install -r requirements.txt e o pacote congelado será ativado no projeto aberto.
+
